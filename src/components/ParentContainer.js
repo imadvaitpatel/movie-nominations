@@ -42,7 +42,7 @@ export default class ParentContainer extends React.Component {
 			const title = this.state.searchBarText.trim();
 
 			if (!(title === '')) {
-				const url = `http://www.omdbapi.com/?apikey=${API_KEY}&s=${title}&type=movie`;
+				const url = `https://www.omdbapi.com/?apikey=${API_KEY}&s=${title}&type=movie`;
 				const response = await fetch(url);
 				const data = await response.json();
 
