@@ -1,5 +1,5 @@
 import './App.css';
-import ParentContainer from './components.js';
+import ParentContainer from './components/ParentContainer.js';
 
 function App() {
   return (

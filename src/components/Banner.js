@@ -1,7 +1,7 @@
 import React from 'react';
 import './components.css';
 import { motion } from 'framer-motion';
-import trophy from './trophy.png';
+import trophy from '../trophy.png';
 
 const Banner = props => {
 	const { numberOfNominations } = props;
