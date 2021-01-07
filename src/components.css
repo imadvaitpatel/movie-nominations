@@ -22,7 +22,7 @@ input {
   height: 28px;
   border-radius: 5px 5px 5px 5px;
   border-color: black;
-  text-indent: 46px;
+  padding-left: 46px;
 }
 
 .search-icon {
@@ -88,13 +88,13 @@ input {
 }
 
 .banner {
-  z-index: 2;
   position: absolute;
   background-color: purple;
   display: flex;
   flex-direction: column;
   max-height: 100%;
-  max-width: 100%;
+  padding-left: 5px;
+  padding-right: 5px;
 }
 
 .trophy {
