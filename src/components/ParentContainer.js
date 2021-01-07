@@ -5,7 +5,7 @@ import SearchBox from './SearchBox';
 import ResultBox from './ResultBox';
 import NominationBox from './NominationBox';
 
-const API_KEY = process.env.REACT_APP_API_KEY;
+const API_KEY = process.env.NEXT_PUBLIC_REACT_APP_API_KEY;
 
 export default class ParentContainer extends React.Component {
 	constructor(props) {
