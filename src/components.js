@@ -2,6 +2,7 @@ import React from 'react';
 import './components.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSearch } from '@fortawesome/free-solid-svg-icons';
+import Banner from './banner.js';
 
 const API_KEY = process.env.REACT_APP_API_KEY;
 
@@ -159,8 +160,6 @@ export default class ParentContainer extends React.Component {
 			newNominations.splice(i, 1); // remove the "unnominated movie"
 			this.setState({ nominations: newNominations });
     }
-    this.state.nominations.map(item => console.log(item));
-    console.log(` noms:: ${this.state.nominations}`);
 	};
 
 	updateResults = newText => {
@@ -214,6 +213,7 @@ export default class ParentContainer extends React.Component {
 						updateNominations={this.updateNominations}
 					/>
 				</div>
+        <Banner numberOfNominations={this.state.nominations.length}/>
 			</div>
 		);
 	}
