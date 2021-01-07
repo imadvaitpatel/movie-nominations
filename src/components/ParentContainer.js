@@ -16,8 +16,8 @@ export default class ParentContainer extends React.Component {
 			results: null,
 			errorMessage: '',
 		};
-  }
-
+	}
+	// update nominations when user clicks a button
 	updateNominations = (nominate, movie) => {
 		// either a movie is nominated or "unnominated"
 		let newNominations = this.state.nominations;
@@ -28,17 +28,18 @@ export default class ParentContainer extends React.Component {
 			const i = newNominations.indexOf(movie);
 			newNominations.splice(i, 1); // remove the "unnominated movie"
 			this.setState({ nominations: newNominations });
-    }
+		}
 	};
-
+	// update search results when user types in search bar
 	updateResults = newText => {
 		this.setState({ searchBarText: newText });
 	};
 
 	async componentDidUpdate(prevProps, prevState) {
+		// need prevProps argument to ensure only one API call is made per render update
+		// callback only on state change to prevent infinite loop
 		if (prevState.searchBarText !== this.state.searchBarText) {
-			// need prevProps to ensure only one API call is made per render update
-			const title = this.state.searchBarText.trim(); //callback only on state change to prevent infinite loop
+			const title = this.state.searchBarText.trim();
 
 			if (!(title === '')) {
 				const url = `http://www.omdbapi.com/?apikey=${API_KEY}&s=${title}&type=movie`;
@@ -82,7 +83,7 @@ export default class ParentContainer extends React.Component {
 						updateNominations={this.updateNominations}
 					/>
 				</div>
-        <Banner numberOfNominations={this.state.nominations.length}/>
+				<Banner numberOfNominations={this.state.nominations.length} />
 			</div>
 		);
 	}

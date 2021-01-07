@@ -1,5 +1,8 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import sound from '../assets/nominate-sound.mp3';
+
+const audio = new Audio(sound);
 
 function displayMovies(data, clickHandler, nominations) {
 	if (data) {
@@ -24,6 +27,7 @@ function displayMovies(data, clickHandler, nominations) {
 	}
 }
 
+// helper function to check if movie has already been nominated
 function checkIfNominee(title, year, nominations) {
 	return nominations.some(
 		nominee => nominee.title === title && nominee.year === year
@@ -40,6 +44,7 @@ const ResultBox = props => {
 	} = props;
 
 	const clickHandler = (event, movieIndex) => {
+    audio.play();
 		const movie = movieResults[movieIndex];
 		event.target.disabled = true;
 		updateNominations(true, movie, nominations);
